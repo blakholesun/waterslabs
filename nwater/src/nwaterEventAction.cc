@@ -147,7 +147,6 @@ void nwaterEventAction::EndOfEventAction(const G4Event* event)
     for(size_t j=0;j<6;j++)
     {
       fullName = detName[i]+"/"+primName[i][j];
-      G4cout << fullName << G4endl; 
       colIDSum[i][j] = SDMan->GetCollectionID(fullName);
     }
   }   
