@@ -1,0 +1,2 @@
+/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwat/CMakeFiles/nwater.dir
+/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwat/CMakeFiles/nwaterrun.dir

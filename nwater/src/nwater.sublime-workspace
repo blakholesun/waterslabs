@@ -1,0 +1,744 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/nwaterDetectorConstruction.hh",
+			"settings":
+			{
+				"buffer_size": 2623,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/nwaterEventAction.hh",
+			"settings":
+			{
+				"buffer_size": 2885,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "nwaterActionInitialization.cc",
+			"settings":
+			{
+				"buffer_size": 2985,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 334.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"subl",
+				"SublimeREPL: Python"
+			],
+			[
+				"",
+				"SublimeREPL: Python"
+			],
+			[
+				"sublimerepl",
+				"SublimeREPL: Python"
+			],
+			[
+				"sublimerepl:pytho",
+				"SublimeREPL: Python"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Sub",
+				"SublimeREPL: Python"
+			],
+			[
+				"Package Control: install ",
+				"Package Control: Install Package"
+			],
+			[
+				"late",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"Package Control: ina",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Section"
+			],
+			[
+				"Package Control: ints",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 507.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater"
+	],
+	"file_history":
+	[
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/nwaterSteppingAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/nwaterRunAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/nwaterRun.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/nwaterPrimaryGeneratorAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/nwaterEventAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/nwaterDetectorConstruction.hh",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/nwaterDetectorConstruction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/nwaterActionInitialization.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/main_nwater.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/B1ActionInitialization.hh",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/B1Run.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/B1Run.hh",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/B1RunAction.hh",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/B1RunAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/B1SteppingAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/B1EventAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/B1EventAction.hh",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/B1PrimaryGeneratorAction.hh",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/B1PrimaryGeneratorAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/CMakeLists.txt",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/B1DetectorConstruction.hh",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/B1DetectorConstruction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/B1SteppingAction.hh",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/README",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/RE02.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02RunAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02Run.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02PSPassageCellFlux.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02PSNofStep.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02PSFlatSurfaceFlux.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02PSFlatSurfaceCurrent.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02PSEnergyDeposit.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02PrimaryGeneratorAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02NestedPhantomParameterisation.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02EventAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02ActionInitialization.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02DetectorConstruction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/runAndEvent/RE02/src/RE02PSCellFlux.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4c/src/B4cDetectorConstruction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4c/include/B4cCalorimeterSD.hh",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4c/src/B4cCalorimeterSD.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4c/include/B4cCalorHit.hh",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/README",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/README.HowToRun",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/README.HowToRunMT",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4c/src/B4cActionInitialization.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4c/src/B4cCalorHit.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4c/COMMENTS.txt",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4c/exampleB4c.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4b/src/B4bActionInitialization.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4b/src/B4bEventAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4b/src/B4bRunAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4b/src/B4bRunData.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4b/src/B4bSteppingAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4b/src/B4DetectorConstruction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4b/src/B4PrimaryGeneratorAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/src/B4RunAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/electromagnetic/TestEm5/src/Run.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/electromagnetic/TestEm5/src/RunAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/electromagnetic/TestEm5/include/DetectorConstruction.hh",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/extended/electromagnetic/TestEm5/src/DetectorConstruction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/include/B4Analysis.hh",
+		"/home/rmaglieri/Documents/MATLAB/xml_toolbox/INSTALL.TXT",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/src/B4PrimaryGeneratorAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/exampleB4a.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/src/B4aSteppingAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/src/B4aEventAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/src/B4aActionInitialization.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/include/B4DetectorConstruction.hh",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B4/B4a/src/B4DetectorConstruction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/radioactivedecay/rdecay02/src/exrdmEventAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/radioactivedecay/rdecay02/src/exrdmEnergyDeposition.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/radioactivedecay/rdecay02/src/exrdmPrimaryGeneratorAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/radioactivedecay/rdecay02/src/exrdmSteppingAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/radioactivedecay/rdecay02/src/exrdmRunAction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/src/B1ActionInitialization.cc",
+		"/home/rmaglieri/Dropbox/PhD/Reports/CNSC/CNSCreport.tex",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/source/run/src/G4VUserDetectorConstruction.cc",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/source/run/include/G4VUserDetectorConstruction.hh",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/vis.mac",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/init_vis.mac",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/14Mev_N_watero",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/14Mev_N_water_1umo",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/14Mev_N_water_1um",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/My Papers/Masters/NNS in RT/SIMS/fullsim_18mev",
+		"/home/rmaglieri/FLUKA/examples/examplerun/example001.out",
+		"/home/rmaglieri/FLUKA/example.inp",
+		"/home/rmaglieri/FLUKA/examples/examplerun/ranexample001",
+		"/home/rmaglieri/FLUKA/exfixed.inp",
+		"/home/rmaglieri/.bashrc",
+		"/home/rmaglieri/FLUKA/12cqmd.inp",
+		"/home/rmaglieri/FLUKA/12ctst.inp",
+		"/home/rmaglieri/TALYS/talys/samples/23/new/outputdiff",
+		"/home/rmaglieri/TALYS/talys/samples/20/new/outputdiff",
+		"/home/rmaglieri/TALYS/talys/samples/1/a/new/output",
+		"/home/rmaglieri/TALYS/talys/samples/1/a/new/outputdiff",
+		"/home/rmaglieri/Dropbox/PhD/SIMS/full2014_06_12",
+		"/home/rmaglieri/TALYS/talys/samples/verify",
+		"/home/rmaglieri/TALYS/talys/talys.setup",
+		"/home/rmaglieri/TALYS/talys/README",
+		"/home/rmaglieri/TALYS/talys/samples/README",
+		"/home/rmaglieri/TALYS/talys/LOG-1.6",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/ThesisReport_new/ThesisReport/latexfiles/Results/res4_fff.tex",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/ThesisReport_new/ThesisReport/latexfiles/Results/res3_nns_meas.tex",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/ThesisReport_new/ThesisReport/latexfiles/Results/res2_mc.tex",
+		"/home/rmaglieri/Dropbox/PhD/Journals/Journal_PhD.tex",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/ThesisReport_new/ThesisReport/latexfiles/Theory/theoryV2.tex",
+		"/home/rmaglieri/Dropbox/PhD/Journals/2014/October2014.tex",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/ThesisReport_new/ThesisReport/latexfiles/Intro/intro.tex",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/ThesisReport_new/ThesisReport/latexfiles/Conclusion/conclusion.tex",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/My Papers/Masters/NNS in RT/Thesis.bib",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/My Papers/Masters/NNS in RT/NNS_in_rt.tex",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/My Papers/Masters/NNS in RT/SIMS/fullsim_effect_of_maze_location",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/My Papers/Masters/NNS in RT/SIMS/calib18",
+		"/home/rmaglieri/Desktop/cm-unicode-0.7.0/INSTALL",
+		"/home/rmaglieri/Desktop/cm-unicode-0.7.0/README",
+		"/home/rmaglieri/.cache/.fr-gloJlF/cm-unicode-0.7.0/INSTALL",
+		"/usr/local/bin/matlab",
+		"/home/rmaglieri/Desktop/matlab_R2014b_glnxa64/readme.txt",
+		"/usr/local/MATLAB/R2013a/bin/matlab",
+		"/home/rmaglieri/Dropbox/Thesis_Folder/ThesisReport_new/ThesisReport/latexfiles/Thesis.bib",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B3/run1.mac",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B3/README",
+		"/home/rmaglieri/Desktop/test.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B1/src/B1SteppingAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B1/src/B1EventAction.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B1/src/B1ActionInitialization.cc",
+		"/home/rmaglieri/GEANT/geant4.10.00.p02/examples/basic/B1/include/B1DetectorConstruction.hh"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"B1",
+			"fSco",
+			"fScoringVolume",
+			"fNbGamma",
+			"physWorld",
+			"fScoringVolume",
+			"nist",
+			"1tally",
+			"1",
+			"0",
+			"warning",
+			"warnin",
+			"39r",
+			"isocenter",
+			"NCRP",
+			"ncrp",
+			"iaea",
+			"current mode",
+			"pulsed mode",
+			"pulse height",
+			"selected",
+			"pulsed mode",
+			"subfigure",
+			"subfi",
+			"pulse mode",
+			"current mode",
+			"pulsed",
+			"hagiwarw",
+			"isocenter",
+			"pulse",
+			"pule",
+			"tumor",
+			"python3",
+			"pyhton3",
+			"python",
+			"titt",
+			"G4LEDATA",
+			"G4LE",
+			"G4EM",
+			"constancy",
+			"NRC",
+			"21EX",
+			", ",
+			"Set",
+			"citep",
+			",",
+			"table",
+			"photonuclear",
+			" \\",
+			"\n\\includegraphics[width=0.75\\textheight]{figures/linearityraw.eps}\n",
+			"mx",
+			"mpn",
+			"054329",
+			"60c",
+			"photonucl",
+			"coulomb",
+			"\\phi",
+			"phi",
+			"fig:pulse_height",
+			"label",
+			",",
+			"2.216",
+			"\\circ",
+			"tr",
+			"kappa",
+			")\n",
+			" \n",
+			"2.216",
+			"4.323",
+			"36.703",
+			"65",
+			"5.687",
+			"8.067",
+			"9375",
+			"7.9375"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"nwater",
+			"isocentre",
+			"current-mode",
+			"pulse-height",
+			"pulse-mode",
+			"pulse-height",
+			"pulse-mode",
+			"current-mode",
+			"pulse",
+			"isocentre",
+			"tumour",
+			"python",
+			"python3",
+			"pyhton3"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/nwaterDetectorConstruction.hh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2011,
+								2011
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 285.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/rmaglieri/Dropbox/PhD/SIMS/GEANT4/nwater/include/nwaterEventAction.hh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2885,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2532,
+								2532
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 456.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "nwaterActionInitialization.cc",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2985,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 257.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 118.0
+	},
+	"project": "nwater.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 195.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
