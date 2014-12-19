@@ -152,19 +152,21 @@ void nwaterEventAction::EndOfEventAction(const G4Event* event)
   }   
   // // Get sum values from hits collections
   // //
-  G4double layer1curr = GetSum(GetHitsCollection(
-        G4SDManager::GetSDMpointer()->GetCollectionID("Layer1/Current_1"), event));
-  // G4double layer2curr = GetSum(GetHitsCollection(flayer2currentHCID, event));
-  // G4double layer3curr = GetSum(GetHitsCollection(flayer3currentHCID, event));
 
   // // get analysis manager
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
   
   // // fill ntuple
   // //
-  analysisManager->FillNtupleDColumn(0, layer1curr);
-  // analysisManager->FillNtupleDColumn(1, layer2curr);
-  // analysisManager->FillNtupleDColumn(2, layer3curr);
+  for (size_t i=0;i<3;i++)
+  {
+    for(size_t j=0;j<6;j++)
+    {
+        analysisManager->FillNtupleDColumn(i+j, 
+                GetSum(GetHitsCollection(colIDSum[i][j], event)));
+    }
+  }
+
   analysisManager->AddNtupleRow();  
   
 
