@@ -139,6 +139,8 @@ void nwaterEventAction::EndOfEventAction(const G4Event* event)
       }
   }
 
+// get all collection ids from the SD manager
+
   G4SDManager* SDMan = G4SDManager::GetSDMpointer();
   G4String fullName;
   G4int colIDSum[3][6];
@@ -150,19 +152,17 @@ void nwaterEventAction::EndOfEventAction(const G4Event* event)
       colIDSum[i][j] = SDMan->GetCollectionID(fullName);
     }
   }   
-  // // Get sum values from hits collections
-  // //
 
   // // get analysis manager
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
   
-  // // fill ntuple
+  // // fill ntuple with hit collections of each event and passage current
   // //
   for (size_t i=0;i<3;i++)
   {
     for(size_t j=0;j<6;j++)
     {
-        analysisManager->FillNtupleDColumn(i+j, 
+        analysisManager->FillNtupleDColumn(i*6 + j, 
                 GetSum(GetHitsCollection(colIDSum[i][j], event)));
     }
   }
