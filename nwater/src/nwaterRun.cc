@@ -1,0 +1,127 @@
+#include "nwaterRun.hh"
+#include "G4Event.hh"
+#include "G4HCofThisEvent.hh"
+#include "G4SDManager.hh"
+
+nwaterRun::nwaterRun()
+{
+  G4String detName[6] = {"Calor-A_abs","Calor-A_gap","Calor-B_abs","Calor-B_gap",
+                         "Calor-C_abs","Calor-C_gap"};
+  G4String primNameSum[6] = {"eDep","nGamma","nElectron","nPositron","trackLength","nStep"};
+  G4String primNameMin[3] = {"minEkinGamma","minEkinElectron","minEkinPositron"};
+
+  G4SDManager* SDMan = G4SDManager::GetSDMpointer();
+  G4String fullName;
+  for(size_t i=0;i<6;i++)
+  {
+    for(size_t j=0;j<6;j++)
+    {
+      fullName = detName[i]+"/"+primNameSum[j];
+      colIDSum[i][j] = SDMan->GetCollectionID(fullName);
+    }
+    for(size_t k=0;k<3;k++)
+    {
+      fullName = detName[i]+"/"+primNameMin[k];
+      colIDMin[i][k] = SDMan->GetCollectionID(fullName);
+    }
+  }
+}
+
+//
+// Destructor
+//    clear all data members.
+Run::~Run()
+{
+  //--- Clear HitsMap for RUN
+  G4int Nmap = theRunMap.size();
+  for ( G4int i = 0; i < Nmap; i++){
+    if(theRunMap[i] ) theRunMap[i]->clear();
+  }
+  theCollName.clear();
+  theCollID.clear();
+  theRunMap.clear();
+}
+
+//
+//  RecordEvent is called at end of event.
+//  For scoring purpose, the resultant quantity in a event,
+//  is accumulated during a Run.
+void nwaterRun::RecordEvent(const G4Event* evt)
+{
+  G4HCofThisEvent* HCE = evt->GetHCofThisEvent();
+  if(!HCE) return;
+  numberOfEvent++;
+  for(size_t i=0;i<6;i++)
+  {
+    for(size_t j=0;j<6;j++)
+    {
+      G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(colIDSum[i][j]));
+      mapSum[i][j] += *evtMap;
+    }
+    for(size_t k=0;k<3;k++)
+    {
+      G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(colIDMin[i][k]));
+      std::map<G4int,G4double*>::iterator itr = evtMap->GetMap()->begin();
+      for(; itr != evtMap->GetMap()->end(); itr++)
+      {
+        G4int key = (itr->first);
+        G4double val = *(itr->second);
+        G4double* mapP = mapMin[i][k][key];
+        if( mapP && (val>*mapP) ) continue;
+        mapMin[i][k].set(key,val);
+      }
+    }
+  }
+}
+
+//=================================================================
+//  Access method for HitsMap of the RUN
+//
+//-----
+// Access HitsMap.
+//  By  MultiFunctionalDetector name and Collection Name.
+G4THitsMap<G4double>* Run::GetHitsMap(const G4String& detName,
+					 const G4String& colName){
+    G4String fullName = detName+"/"+colName;
+    return GetHitsMap(fullName);
+}
+
+//-----
+// Access HitsMap.
+//  By full description of collection name, that is
+//    <MultiFunctional Detector Name>/<Primitive Scorer Name>
+G4THitsMap<G4double>* Run::GetHitsMap(const G4String& fullName){
+    G4int Ncol = theCollName.size();
+    for ( G4int i = 0; i < Ncol; i++){
+	if ( theCollName[i] == fullName ){
+	    return theRunMap[i];
+	}
+    }
+    return NULL;
+}
+
+//-----
+// - Dump All HitsMap of this RUN. (for debuging and monitoring of quantity).
+//   This method calls G4THisMap::PrintAll() for individual HitsMap.
+void Run::DumpAllScorer(){
+
+  // - Number of HitsMap in this RUN.
+  G4int n = GetNumberOfHitsMap();
+  // - GetHitsMap and dump values.
+  for ( G4int i = 0; i < n ; i++ ){
+    G4THitsMap<G4double>* RunMap =GetHitsMap(i);
+    if ( RunMap ) {
+      G4cout << " PrimitiveScorer RUN " 
+	     << RunMap->GetSDname() <<","<< RunMap->GetName() << G4endl;
+      G4cout << " Number of entries " << RunMap->entries() << G4endl;
+      std::map<G4int,G4double*>::iterator itr = RunMap->GetMap()->begin();
+      for(; itr != RunMap->GetMap()->end(); itr++) {
+	G4cout << "  copy no.: " << itr->first
+	       << "  Run Value : " << *(itr->second) 
+	       << G4endl;
+      }
+    }
+  }
+}
+
+
