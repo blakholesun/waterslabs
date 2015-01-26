@@ -48,7 +48,7 @@ class nwaterDetectorConstruction : public G4VUserDetectorConstruction
   public:
     virtual G4VPhysicalVolume* Construct();
     virtual void ConstructSD();
-    virtual void setPassageCurrent(G4String detector_name, 
+    virtual void setCellFlux(G4String detector_name, 
                                   G4String current_name, G4int i);
     virtual G4String makeString(G4int i);
   //   G4LogicalVolume* GetScoringVolume() const { return fScoringVolume; }
