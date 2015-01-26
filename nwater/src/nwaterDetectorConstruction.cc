@@ -38,7 +38,7 @@
 #include "G4SDManager.hh"
 #include "G4MultiFunctionalDetector.hh"
 #include "G4VPrimitiveScorer.hh"
-#include "G4PSPassageCellCurrent.hh"
+#include "G4PSCellFlux.hh"
 #include "G4SDParticleFilter.hh"
 #include <sstream>
 
@@ -278,32 +278,32 @@ void nwaterDetectorConstruction::setPassageCurrent(G4String detector_name,
     = new G4MultiFunctionalDetector(detector_name);
 
   G4VPrimitiveScorer* primitive;
-  primitive = new G4PSPassageCellCurrent(current_name + makeString(i+1));
+  primitive = new G4PSCellFlux(current_name + makeString(i+1));
   primitive->SetFilter(protonFilter1);
   layer3->RegisterPrimitive(primitive);
 
   // filter photon
-  primitive = new G4PSPassageCellCurrent(current_name + makeString(i+2));
+  primitive = new G4PSCellFlux(current_name + makeString(i+2));
   primitive->SetFilter(gammaFilter1);
   layer3->RegisterPrimitive(primitive);
 
   // filter neutron
-  primitive = new G4PSPassageCellCurrent(current_name + makeString(i+3));
+  primitive = new G4PSCellFlux(current_name + makeString(i+3));
   primitive->SetFilter(neutronFilter1);
   layer3->RegisterPrimitive(primitive);
 
   // filter electron
-  primitive = new G4PSPassageCellCurrent(current_name + makeString(i+4));
+  primitive = new G4PSCellFlux(current_name + makeString(i+4));
   primitive->SetFilter(electronFilter1);
   layer3->RegisterPrimitive(primitive);
 
   // filter Generic Ion
-  primitive = new G4PSPassageCellCurrent(current_name + makeString(i+5));
+  primitive = new G4PSCellFlux(current_name + makeString(i+5));
   primitive->SetFilter(genericionFilter1);
   layer3->RegisterPrimitive(primitive);
 
   // filter alpha
-  primitive = new G4PSPassageCellCurrent(current_name + makeString(i+6));
+  primitive = new G4PSCellFlux(current_name + makeString(i+6));
   primitive->SetFilter(alphaFilter1);
   layer3->RegisterPrimitive(primitive);
 
