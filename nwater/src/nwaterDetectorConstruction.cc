@@ -229,22 +229,22 @@ void nwaterDetectorConstruction::ConstructSD()
   //
   G4String detector_name = "Layer1";
   G4String current_name = "Current_";
-  setPassageCurrent(detector_name, current_name, 0);
+  setCellFlux(detector_name, current_name, 0);
 
   /////////// declare layer 2 as a MultiFunctionalDetector scorer //////////
   //  
   detector_name = "Layer2";
   current_name = "Current_";
-  setPassageCurrent(detector_name, current_name, 0);
+  setCellFlux(detector_name, current_name, 0);
 
   //////////// declare layer 3 as a MultiFunctionalDetector scorer//////////
   //  
   detector_name = "Layer3";
   current_name = "Current_";
-  setPassageCurrent(detector_name, current_name, 0);   
+  setCellFlux(detector_name, current_name, 0);   
 }
 
-void nwaterDetectorConstruction::setPassageCurrent(G4String detector_name, 
+void nwaterDetectorConstruction::setCellFlux(G4String detector_name, 
                                                   G4String current_name, G4int i)
 {
   // add an integer to passage current_name, no confusion
