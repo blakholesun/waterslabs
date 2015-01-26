@@ -126,7 +126,7 @@ void nwaterEventAction::BeginOfEventAction(const G4Event*)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void nwaterEventAction::EndOfEventAction(const G4Event* event)
+void nwaterEventAction::EndOfEventAction() //const G4Event* event)
 {
 
   G4String detName[3] = {"Layer1","Layer2","Layer3"};
@@ -154,20 +154,20 @@ void nwaterEventAction::EndOfEventAction(const G4Event* event)
   }   
 
   // // get analysis manager
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
   
   // // fill ntuple with hit collections of each event and passage current
   // //
-  for (size_t i=0;i<3;i++)
-  {
-    for(size_t j=0;j<6;j++)
-    {
-        analysisManager->FillNtupleDColumn(i*6 + j, 
-                GetSum(GetHitsCollection(colIDSum[i][j], event)));
-    }
-  }
+  // for (size_t i=0;i<3;i++)
+  // {
+  //   for(size_t j=0;j<6;j++)
+  //   {
+  //       analysisManager->FillNtupleDColumn(i*6 + j, 
+  //               GetSum(GetHitsCollection(colIDSum[i][j], event)));
+  //   }
+  // }
 
-  analysisManager->AddNtupleRow();  
+  // analysisManager->AddNtupleRow();  
   
 
 }
