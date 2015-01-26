@@ -73,14 +73,15 @@ nwaterRunAction::nwaterRunAction()
   // Create analysis manager
   // The choice of analysis technology is done via selectin of a namespace
   // in B4Analysis.hh
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  G4cout << "Using " << analysisManager->GetType() << G4endl;
+
+  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  // G4cout << "Using " << analysisManager->GetType() << G4endl;
 
   // Create directories 
   //analysisManager->SetHistoDirectoryName("histograms");
   //analysisManager->SetNtupleDirectoryName("ntuple");
-  analysisManager->SetVerboseLevel(1);
-  analysisManager->SetFirstHistoId(1);
+  //analysisManager->SetVerboseLevel(1);
+  //analysisManager->SetFirstHistoId(1);
 
   // Book histograms, ntuple
   //
@@ -92,11 +93,11 @@ nwaterRunAction::nwaterRunAction()
 
   // Creating ntuple
   //
-  analysisManager->CreateNtuple("nwater", "Current");
-  analysisManager->CreateNtupleDColumn("Layer1Curr");
+  // analysisManager->CreateNtuple("nwater", "Current");
+  // analysisManager->CreateNtupleDColumn("Layer1Curr");
   // analysisManager->CreateNtupleDColumn("Layer2Curr");
   // analysisManager->CreateNtupleDColumn("Layer3Curr");
-  analysisManager->FinishNtuple();  
+  // analysisManager->FinishNtuple();  
 
 }
 
@@ -104,7 +105,7 @@ nwaterRunAction::nwaterRunAction()
 
 nwaterRunAction::~nwaterRunAction()
 {
-    delete G4AnalysisManager::Instance();   
+    //delete G4AnalysisManager::Instance();   
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -122,34 +123,34 @@ void nwaterRunAction::BeginOfRunAction(const G4Run*)
   G4RunManager::GetRunManager()->SetRandomNumberStore(true);
 
   // Get analysis manager
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  //G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
 
   // Open an output file
   //
-  G4String fileName = "nwaterout";
-  analysisManager->OpenFile(fileName);
+  //G4String fileName = "nwaterout";
+  //analysisManager->OpenFile(fileName);
 }
 
-void nwaterRunAction::EndOfRunAction(const G4Run* run)
+void nwaterRunAction::EndOfRunAction() //const G4Run* run)
 {
 
   // G4int NbofEvents = run->GetNumberOfEvent();
   // if (NbofEvents == 0) return;
   // CLHEP::HepRandom::showEngineStatus();  
 
-  const G4HCtable* total = run->GetHCtable();
+  // const G4HCtable* total = run->GetHCtable();
 
-  G4cout << "+++++++++++++++++++++++++++++++++++++++++   " << total->GetHCname(2) 
-    << "   +++++++++++++++++++++++++++++++++" << G4endl;
-  G4cout << "+++++++++++++++++++++++++++++++++++++++++   " << total->entries() 
-    << "   +++++++++++++++++++++++++++++++++" << G4endl;
+  // G4cout << "+++++++++++++++++++++++++++++++++++++++++   " << total->GetHCname(2) 
+  //   << "   +++++++++++++++++++++++++++++++++" << G4endl;
+  // G4cout << "+++++++++++++++++++++++++++++++++++++++++   " << total->entries() 
+  //   << "   +++++++++++++++++++++++++++++++++" << G4endl;
   // G4SDManager* SDMan = G4SDManager::GetSDMpointer();
   // G4int layer1proton = SDMan->GetCollectionID(total->GetHCname(0));
 
   // // get analysis manager
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  analysisManager->Write();
-  analysisManager->CloseFile();
+  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  // analysisManager->Write();
+  // analysisManager->CloseFile();
 
 }
 
