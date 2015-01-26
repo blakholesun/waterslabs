@@ -131,7 +131,7 @@ void nwaterRunAction::BeginOfRunAction(const G4Run*)
   //analysisManager->OpenFile(fileName);
 }
 
-void nwaterRunAction::EndOfRunAction() //const G4Run* run)
+void nwaterRunAction::EndOfRunAction(const G4Run*)
 {
 
   // G4int NbofEvents = run->GetNumberOfEvent();

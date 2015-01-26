@@ -126,7 +126,7 @@ void nwaterEventAction::BeginOfEventAction(const G4Event*)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void nwaterEventAction::EndOfEventAction() //const G4Event* event)
+void nwaterEventAction::EndOfEventAction( const G4Event*)
 {
 
   G4String detName[3] = {"Layer1","Layer2","Layer3"};
