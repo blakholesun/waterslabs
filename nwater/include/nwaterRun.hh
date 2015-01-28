@@ -11,7 +11,6 @@ class nwaterRun : public G4Run {
 
 public:
   // constructor and destructor.
-  //  vector of multifunctionaldetector name has to given to constructor.
   nwaterRun();
   virtual ~nwaterRun();
 
@@ -34,6 +33,8 @@ public:
   // - Dump All HitsMap of this RUN.
   //   This method calls G4THisMap::PrintAll() for individual HitsMap.
   void DumpAllScorer();
+
+  G4String makeString(G4int i);
 
 private:
   std::vector<G4String> theCollName;
