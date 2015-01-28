@@ -228,19 +228,19 @@ void nwaterDetectorConstruction::ConstructSD()
   /////////// declare layer 1 as a MultiFunctionalDetector scorer /////////
   //
   G4String detector_name = "Layer1";
-  G4String current_name = "Current_";
+  G4String current_name = "Flux_";
   setCellFlux(detector_name, current_name, 0);
 
   /////////// declare layer 2 as a MultiFunctionalDetector scorer //////////
   //  
   detector_name = "Layer2";
-  current_name = "Current_";
+  current_name = "Flux_";
   setCellFlux(detector_name, current_name, 0);
 
   //////////// declare layer 3 as a MultiFunctionalDetector scorer//////////
   //  
   detector_name = "Layer3";
-  current_name = "Current_";
+  current_name = "Flux_";
   setCellFlux(detector_name, current_name, 0);   
 }
 
@@ -307,7 +307,7 @@ void nwaterDetectorConstruction::setCellFlux(G4String detector_name,
   primitive->SetFilter(alphaFilter1);
   layer3->RegisterPrimitive(primitive);
 
-  G4SDManager::GetSDMpointer()->AddNewDetector(layer3);
+  //G4SDManager::GetSDMpointer()->AddNewDetector(layer3);
   SetSensitiveDetector(detector_name,layer3); 
 }
 
