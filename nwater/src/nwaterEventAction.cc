@@ -128,46 +128,6 @@ void nwaterEventAction::BeginOfEventAction(const G4Event*)
 
 void nwaterEventAction::EndOfEventAction( const G4Event*)
 {
-
-  G4String detName[3] = {"Layer1","Layer2","Layer3"};
-  G4String primName[3][6];
-  for (size_t j=0;j<3;j++)
-  {
-    for(size_t i=0;i<6;i++)
-      {
-      primName[j][i] = "Current_" + makeString(i+1);
-      }
-  }
-
-// get all collection ids from the SD manager
-
-  G4SDManager* SDMan = G4SDManager::GetSDMpointer();
-  G4String fullName;
-  G4int colIDSum[3][6];
-  for(size_t i=0;i<3;i++)
-  {
-    for(size_t j=0;j<6;j++)
-    {
-      fullName = detName[i]+"/"+primName[i][j];
-      colIDSum[i][j] = SDMan->GetCollectionID(fullName);
-    }
-  }   
-
-  // // get analysis manager
-  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  
-  // // fill ntuple with hit collections of each event and passage current
-  // //
-  // for (size_t i=0;i<3;i++)
-  // {
-  //   for(size_t j=0;j<6;j++)
-  //   {
-  //       analysisManager->FillNtupleDColumn(i*6 + j, 
-  //               GetSum(GetHitsCollection(colIDSum[i][j], event)));
-  //   }
-  // }
-
-  // analysisManager->AddNtupleRow();  
   
 
 }
