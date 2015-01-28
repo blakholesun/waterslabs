@@ -24,7 +24,7 @@ nwaterRun::nwaterRun()
 //
 // Destructor
 //    clear all data members.
-Run::~Run()
+nwaterRun::~nwaterRun()
 {
   //--- Clear HitsMap for RUN
   G4int Nmap = theRunMap.size();
@@ -40,7 +40,7 @@ Run::~Run()
 //  RecordEvent is called at end of event.
 //  For scoring purpose, the resultant quantity in a event,
 //  is accumulated during a Run.
-void Run::RecordEvent(const G4Event* aEvent)
+void nwaterRun::RecordEvent(const G4Event* aEvent)
 {
   numberOfEvent++;  // This is an original line.
 
@@ -75,7 +75,7 @@ void Run::RecordEvent(const G4Event* aEvent)
 //-----
 // Access HitsMap.
 //  By  MultiFunctionalDetector name and Collection Name.
-G4THitsMap<G4double>* Run::GetHitsMap(const G4String& detName,
+G4THitsMap<G4double>* nwaterRun::GetHitsMap(const G4String& detName,
 					 const G4String& colName){
     G4String fullName = detName+"/"+colName;
     return GetHitsMap(fullName);
@@ -85,7 +85,7 @@ G4THitsMap<G4double>* Run::GetHitsMap(const G4String& detName,
 // Access HitsMap.
 //  By full description of collection name, that is
 //    <MultiFunctional Detector Name>/<Primitive Scorer Name>
-G4THitsMap<G4double>* Run::GetHitsMap(const G4String& fullName){
+G4THitsMap<G4double>* nwaterRun::GetHitsMap(const G4String& fullName){
     G4int Ncol = theCollName.size();
     for ( G4int i = 0; i < Ncol; i++){
 	if ( theCollName[i] == fullName ){
@@ -98,7 +98,7 @@ G4THitsMap<G4double>* Run::GetHitsMap(const G4String& fullName){
 //-----
 // - Dump All HitsMap of this RUN. (for debuging and monitoring of quantity).
 //   This method calls G4THisMap::PrintAll() for individual HitsMap.
-void Run::DumpAllScorer(){
+void nwaterRun::DumpAllScorer(){
 
   // - Number of HitsMap in this RUN.
   G4int n = GetNumberOfHitsMap();
