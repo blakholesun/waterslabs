@@ -119,4 +119,10 @@ void nwaterRun::DumpAllScorer(){
   }
 }
 
-
+G4String nwaterRun::makeString(G4int i)
+{
+  std::ostringstream ss;
+  ss << i;
+  G4String test = ss.str();
+  return test;
+}
