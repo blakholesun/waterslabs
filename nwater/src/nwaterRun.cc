@@ -5,25 +5,19 @@
 
 nwaterRun::nwaterRun()
 {
-  G4String detName[6] = {"Calor-A_abs","Calor-A_gap","Calor-B_abs","Calor-B_gap",
-                         "Calor-C_abs","Calor-C_gap"};
-  G4String primNameSum[6] = {"eDep","nGamma","nElectron","nPositron","trackLength","nStep"};
-  G4String primNameMin[3] = {"minEkinGamma","minEkinElectron","minEkinPositron"};
-
+  G4String detName[3] = {"Layer1","Layer2","Layer3"};
   G4SDManager* SDMan = G4SDManager::GetSDMpointer();
   G4String fullName;
-  for(size_t i=0;i<6;i++)
+
+  for (size_t j=0;j<3;j++)
   {
-    for(size_t j=0;j<6;j++)
-    {
-      fullName = detName[i]+"/"+primNameSum[j];
-      colIDSum[i][j] = SDMan->GetCollectionID(fullName);
-    }
-    for(size_t k=0;k<3;k++)
-    {
-      fullName = detName[i]+"/"+primNameMin[k];
-      colIDMin[i][k] = SDMan->GetCollectionID(fullName);
-    }
+    for(size_t i=0;i<6;i++)
+      {
+      theCollName.push_back(detName[j]+"/Current_" + makeString(i+1));
+      theCollID.push_back(SDMan->GetCollectionID(fullName));
+      theRunMap.push_back(new G4THitsMap<G4double>(detName[j],
+                          "/Current_" + makeString(i+1)));
+      }
   }
 }
 
