@@ -32,9 +32,10 @@
 #include "nwaterPrimaryGeneratorAction.hh"
 #include "nwaterDetectorConstruction.hh"
 #include "nwaterAnalysis.hh"
-#include "Run.hh"
-// #include "nwaterRun.hh"
+#include "nwaterRun.hh"
 
+#include "G4UImanager.hh"
+#include "G4VVisManager.hh"
 #include "G4SDManager.hh"
 #include "G4RunManager.hh"
 #include "G4LogicalVolumeStore.hh"
@@ -46,58 +47,14 @@
 #include "G4Run.hh"
 #include <iostream>
 using namespace std;
+#include "CLHEP/Random/Random.h"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 nwaterRunAction::nwaterRunAction()
 : G4UserRunAction()
-  // flayer1currentHCID(-1),
-  // flayer2currentHCID(-1),
-  // flayer3currentHCID(-1)
 { 
-  // // add new units for dose
-  // // 
-  // const G4double milligray = 1.e-3*gray;
-  // const G4double microgray = 1.e-6*gray;
-  // const G4double nanogray  = 1.e-9*gray;  
-  // const G4double picogray  = 1.e-12*gray;
-   
-  // new G4UnitDefinition("milligray", "milliGy" , "Dose", milligray);
-  // new G4UnitDefinition("microgray", "microGy" , "Dose", microgray);
-  // new G4UnitDefinition("nanogray" , "nanoGy"  , "Dose", nanogray);
-  // new G4UnitDefinition("picogray" , "picoGy"  , "Dose", picogray);
-
-  // set printing event number per each event
   G4RunManager::GetRunManager()->SetPrintProgress(1);     
-
-  // Create analysis manager
-  // The choice of analysis technology is done via selectin of a namespace
-  // in B4Analysis.hh
-
-  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  // G4cout << "Using " << analysisManager->GetType() << G4endl;
-
-  // Create directories 
-  //analysisManager->SetHistoDirectoryName("histograms");
-  //analysisManager->SetNtupleDirectoryName("ntuple");
-  //analysisManager->SetVerboseLevel(1);
-  //analysisManager->SetFirstHistoId(1);
-
-  // Book histograms, ntuple
-  //
-  
-  //Creating histograms
-  // analysisManager->CreateH1("1","Layer 1 Current", 1, 0., 20*MeV);
-  // analysisManager->CreateH1("2","Layer 2 Current", 1, 0., 20*MeV);
-  // analysisManager->CreateH1("3","Layer 3 Current", 1, 0., 20*MeV);
-
-  // Creating ntuple
-  //
-  // analysisManager->CreateNtuple("nwater", "Current");
-  // analysisManager->CreateNtupleDColumn("Layer1Curr");
-  // analysisManager->CreateNtupleDColumn("Layer2Curr");
-  // analysisManager->CreateNtupleDColumn("Layer3Curr");
-  // analysisManager->FinishNtuple();  
 
 }
 
@@ -119,39 +76,24 @@ nwaterRunAction::~nwaterRunAction()
 
 void nwaterRunAction::BeginOfRunAction(const G4Run*)
 { 
-  //inform the runManager to save random number seed
-  G4RunManager::GetRunManager()->SetRandomNumberStore(true);
-
-  // Get analysis manager
-  //G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-
-  // Open an output file
-  //
-  //G4String fileName = "nwaterout";
-  //analysisManager->OpenFile(fileName);
+  if(G4VVisManager::GetConcreteInstance()) {
+    G4UImanager* UI = G4UImanager::GetUIpointer();
+    UI->ApplyCommand("/vis/scene/notifyHandlers");
+  }
+  CLHEP::HepRandom::showEngineStatus(); 
 }
 
-void nwaterRunAction::EndOfRunAction(const G4Run*)
+void nwaterRunAction::EndOfRunAction(const G4Run* aRun)
 {
+  G4int NbofEvents = aRun->GetNumberOfEvent();
+  if (NbofEvents == 0) return;
+  CLHEP::HepRandom::showEngineStatus();
 
-  // G4int NbofEvents = run->GetNumberOfEvent();
-  // if (NbofEvents == 0) return;
-  // CLHEP::HepRandom::showEngineStatus();  
-
-  // const G4HCtable* total = run->GetHCtable();
-
-  // G4cout << "+++++++++++++++++++++++++++++++++++++++++   " << total->GetHCname(2) 
-  //   << "   +++++++++++++++++++++++++++++++++" << G4endl;
-  // G4cout << "+++++++++++++++++++++++++++++++++++++++++   " << total->entries() 
-  //   << "   +++++++++++++++++++++++++++++++++" << G4endl;
-  // G4SDManager* SDMan = G4SDManager::GetSDMpointer();
-  // G4int layer1proton = SDMan->GetCollectionID(total->GetHCname(0));
-
-  // // get analysis manager
-  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  // analysisManager->Write();
-  // analysisManager->CloseFile();
-
+  nwaterRun* theRun = (nwaterRun*)aRun;
+  G4cout << theRun->GetNumberOfEvent() << G4endl;
+  //G4THitsMap<G4double>* Flux = theRun->GetHitsMap("Layer1/Flux_1");
+  //Flux->PrintAllHits();
+  //theRun->DumpAllScorer();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
