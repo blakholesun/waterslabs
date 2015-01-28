@@ -13,10 +13,10 @@ nwaterRun::nwaterRun()
   {
     for(size_t i=0;i<6;i++)
       {
-      theCollName.push_back(detName[j]+"/Current_" + makeString(i+1));
+      theCollName.push_back(detName[j]+"/Flux_" + makeString(i+1));
       theCollID.push_back(SDMan->GetCollectionID(fullName));
       theRunMap.push_back(new G4THitsMap<G4double>(detName[j],
-                          "/Current_" + makeString(i+1)));
+                          "/Flux_" + makeString(i+1)));
       }
   }
 }
