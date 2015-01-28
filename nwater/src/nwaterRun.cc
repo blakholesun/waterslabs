@@ -40,30 +40,31 @@ Run::~Run()
 //  RecordEvent is called at end of event.
 //  For scoring purpose, the resultant quantity in a event,
 //  is accumulated during a Run.
-void nwaterRun::RecordEvent(const G4Event* evt)
+void Run::RecordEvent(const G4Event* aEvent)
 {
-  G4HCofThisEvent* HCE = evt->GetHCofThisEvent();
-  if(!HCE) return;
-  numberOfEvent++;
-  for(size_t i=0;i<6;i++)
-  {
-    for(size_t j=0;j<6;j++)
-    {
-      G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(colIDSum[i][j]));
-      mapSum[i][j] += *evtMap;
+  numberOfEvent++;  // This is an original line.
+
+  //=============================
+  // HitsCollection of This Event
+  //============================
+  G4HCofThisEvent* HCE = aEvent->GetHCofThisEvent();
+  if (!HCE) return;
+
+  //=======================================================
+  // Sum up HitsMap of this Event  into HitsMap of this RUN
+  //=======================================================
+  G4int Ncol = theCollID.size();
+  for ( G4int i = 0; i < Ncol ; i++ ){  // Loop over HitsCollection
+    G4THitsMap<G4double>* EvtMap=0;
+    if ( theCollID[i] >= 0 ){           // Collection is attached to HCE
+      EvtMap = (G4THitsMap<G4double>*)(HCE->GetHC(theCollID[i]));
+    }else{
+      G4cout <<" Error EvtMap Not Found "<< i << G4endl;
     }
-    for(size_t k=0;k<3;k++)
-    {
-      G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(colIDMin[i][k]));
-      std::map<G4int,G4double*>::iterator itr = evtMap->GetMap()->begin();
-      for(; itr != evtMap->GetMap()->end(); itr++)
-      {
-        G4int key = (itr->first);
-        G4double val = *(itr->second);
-        G4double* mapP = mapMin[i][k][key];
-        if( mapP && (val>*mapP) ) continue;
-        mapMin[i][k].set(key,val);
-      }
+    if ( EvtMap )  {
+      //=== Sum up HitsMap of this event to HitsMap of RUN.===
+      *theRunMap[i] += *EvtMap;
+      //======================================================
     }
   }
 }
