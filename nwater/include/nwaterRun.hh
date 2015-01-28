@@ -7,13 +7,13 @@
 #include "G4THitsMap.hh"
 #include <vector>
 //
-class Run : public G4Run {
+class nwaterRun : public G4Run {
 
 public:
   // constructor and destructor.
   //  vector of multifunctionaldetector name has to given to constructor.
-  Run(const std::vector<G4String> mfdName);
-  virtual ~Run();
+  nwaterRun();
+  virtual ~nwaterRun();
 
 public:
   // virtual method from G4Run. 
