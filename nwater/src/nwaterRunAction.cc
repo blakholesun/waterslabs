@@ -65,6 +65,9 @@ nwaterRunAction::~nwaterRunAction()
     //delete G4AnalysisManager::Instance();   
 }
 
+G4Run* nwaterRunAction::GenerateRun()
+{ return new nwaterRun; }
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 // G4Run* nwaterRunAction::GenerateRun()
@@ -90,7 +93,8 @@ void nwaterRunAction::EndOfRunAction(const G4Run* aRun)
   CLHEP::HepRandom::showEngineStatus();
 
   nwaterRun* theRun = (nwaterRun*)aRun;
-  G4cout << theRun->GetNumberOfEvent() << G4endl;
+  
+  theRun->DumpAllScorer();
   //G4THitsMap<G4double>* Flux = theRun->GetHitsMap("Layer1/Flux_1");
   //Flux->PrintAllHits();
   //theRun->DumpAllScorer();
