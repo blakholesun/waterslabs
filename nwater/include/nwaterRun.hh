@@ -7,7 +7,8 @@
 #include "G4THitsMap.hh"
 #include <vector>
 //
-class nwaterRun : public G4Run {
+class nwaterRun : public G4Run 
+{
 
 public:
   // constructor and destructor.
@@ -19,10 +20,13 @@ public:
   // The method is overriden in this class for scoring.
   virtual void RecordEvent(const G4Event*);
 
+  void printCollection();
+
   // Access methods for scoring information.
   // - Number of HitsMap for this RUN. 
   //   This is equal to number of collections.
   G4int GetNumberOfHitsMap() const {return theRunMap.size();}
+
   // - Get HitsMap of this RUN.
   //   by sequential number, by multifucntional name and collection name,
   //   and by collection name with full path.
