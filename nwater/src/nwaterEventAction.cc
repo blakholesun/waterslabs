@@ -85,34 +85,6 @@ G4double nwaterEventAction::GetSum(G4THitsMap<G4double>* hitsMap) const
   return sumValue;  
 }  
 
-// void nwaterEventAction::RecordEvent(const G4Event* evt)
-// {
-//   G4HCofThisEvent* HCE = evt->GetHCofThisEvent();
-//   if(!HCE) return;
-//   numberOfEvent++;
-//   for(size_t i=0;i<6;i++)
-//   {
-//     for(size_t j=0;j<6;j++)
-//     {
-//       G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(colIDSum[i][j]));
-//       mapSum[i][j] += *evtMap;
-//     }
-//     for(size_t k=0;k<3;k++)
-//     {
-//       G4THitsMap<G4double>* evtMap = (G4THitsMap<G4double>*)(HCE->GetHC(colIDMin[i][k]));
-//       std::map<G4int,G4double*>::iterator itr = evtMap->GetMap()->begin();
-//       for(; itr != evtMap->GetMap()->end(); itr++)
-//       {
-//         G4int key = (itr->first);
-//         G4double val = *(itr->second);
-//         G4double* mapP = mapMin[i][k][key];
-//         if( mapP && (val>*mapP) ) continue;
-//         mapMin[i][k].set(key,val);
-//       }
-//     }
-//   }
-// }
-
 G4String nwaterEventAction::makeString(G4int i)
 {
   std::ostringstream ss;
