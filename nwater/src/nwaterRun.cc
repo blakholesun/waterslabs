@@ -3,7 +3,7 @@
 #include "G4HCofThisEvent.hh"
 #include "G4SDManager.hh"
 
-nwaterRun::nwaterRun()
+nwaterRun::nwaterRun(): G4Run()
 {
   G4String detName[3] = {"Layer1","Layer2","Layer3"};
   G4SDManager* SDMan = G4SDManager::GetSDMpointer();
@@ -13,7 +13,8 @@ nwaterRun::nwaterRun()
   {
     for(size_t i=0;i<6;i++)
       {
-      theCollName.push_back(detName[j]+"/Flux_" + makeString(i+1));
+      fullName = detName[j]+"/Flux_" + makeString(i+1);
+      theCollName.push_back(fullName);
       theCollID.push_back(SDMan->GetCollectionID(fullName));
       theRunMap.push_back(new G4THitsMap<G4double>(detName[j],
                           "/Flux_" + makeString(i+1)));
@@ -34,6 +35,12 @@ nwaterRun::~nwaterRun()
   theCollName.clear();
   theCollID.clear();
   theRunMap.clear();
+}
+
+void nwaterRun::printCollection()
+{
+  G4cout << theCollName[0] << G4endl;
+  G4cout << theCollID[0] << G4endl;
 }
 
 //
