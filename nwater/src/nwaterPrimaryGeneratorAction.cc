@@ -39,6 +39,7 @@
 #include "G4ParticleDefinition.hh"
 #include "G4SystemOfUnits.hh"
 #include "Randomize.hh"
+#include "globals.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -71,55 +72,12 @@ nwaterPrimaryGeneratorAction::~nwaterPrimaryGeneratorAction()
 
 void nwaterPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
-  //this function is called at the begining of ecah event
-  //
-
-  // In order to avoid dependence of PrimaryGeneratorAction
-  // on DetectorConstruction class we get Envelope volume
-  // from G4LogicalVolumeStore.
   
-  // G4double envSizeXY = 0;
-  // G4double envSizeZ = 0;
-
-  // if (!fEnvelopeBox)
-  // {
-  //   G4LogicalVolume* envLV
-  //     = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
-  //   if ( envLV ) fEnvelopeBox = dynamic_cast<G4Box*>(envLV->GetSolid());
-  // }
-
-  // if ( fEnvelopeBox ) {
-  //   envSizeXY = fEnvelopeBox->GetXHalfLength()*2.;
-  //   envSizeZ = fEnvelopeBox->GetZHalfLength()*2.;
-  // }  
-  // else  {
-  //   G4ExceptionDescription msg;
-  //   msg << "Envelope volume of box shape not found.\n"; 
-  //   msg << "Perhaps you have changed geometry.\n";
-  //   msg << "The gun will be place at the center.";
-  //   G4Exception("nwaterPrimaryGeneratorAction::GeneratePrimaries()",
-  //    "MyCode0002",JustWarning,msg);
-  // }
-  G4double worldZHalfLength = 0;
-  G4LogicalVolume* worlLV
-    = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
-  G4Box* worldBox = 0;
-  if ( worlLV) worldBox = dynamic_cast< G4Box*>(worlLV->GetSolid()); 
-  if ( worldBox ) {
-    worldZHalfLength = worldBox->GetZHalfLength();  
-  }
-  else  {
-    G4ExceptionDescription msg;
-    msg << "World volume of box not found." << G4endl;
-    msg << "Perhaps you have changed geometry." << G4endl;
-    msg << "The gun will be place in the center.";
-    G4Exception("B4PrimaryGeneratorAction::GeneratePrimaries()",
-      "MyCode0002", JustWarning, msg);
-  } 
-
-  G4double size = 5*cm; 
-  G4double x0 = size * (G4UniformRand()-0.5);
-  G4double y0 = size * (G4UniformRand()-0.5);
+  G4double angle = G4UniformRand();
+  G4double size = 5*cm;
+  G4double radius = size*G4UniformRand();
+  G4double x0 = radius * cos((angle*CLHEP::twopi));
+  G4double y0 = radius * sin((angle*CLHEP::twopi));
   G4double z0 = -5*cm;
   
   fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
