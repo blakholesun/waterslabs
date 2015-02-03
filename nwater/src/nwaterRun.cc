@@ -105,8 +105,8 @@ G4THitsMap<G4double>* nwaterRun::GetHitsMap(const G4String& fullName){
 //-----
 // - Dump All HitsMap of this RUN. (for debuging and monitoring of quantity).
 //   This method calls G4THisMap::PrintAll() for individual HitsMap.
-void nwaterRun::DumpAllScorer(){
-
+void nwaterRun::DumpAllScorer(G4int total_events){
+  // Normalize the Dump to the number of starting events per run.
   // - Number of HitsMap in this RUN.
   G4int n = GetNumberOfHitsMap();
   // - GetHitsMap and dump values.
@@ -119,7 +119,7 @@ void nwaterRun::DumpAllScorer(){
       std::map<G4int,G4double*>::iterator itr = RunMap->GetMap()->begin();
       for(; itr != RunMap->GetMap()->end(); itr++) {
 	G4cout << "  copy no.: " << itr->first
-	       << "  Run Value : " << *(itr->second) 
+	       << "  Run Value : " << *(itr->second)/total_events << " particles/event"
 	       << G4endl;
       }
     }
