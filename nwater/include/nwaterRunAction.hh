@@ -49,6 +49,7 @@ class nwaterRunAction : public G4UserRunAction
     virtual void BeginOfRunAction(const G4Run*);
     virtual void   EndOfRunAction(const G4Run*);
   private:
+  	G4int total_events;
   	// G4double GetSum(G4THitsMap<G4double>* hitsMap) const;
   	// G4THitsMap<G4double>* GetHitsMaps(G4String ID, const G4Run* run) const;
 };
