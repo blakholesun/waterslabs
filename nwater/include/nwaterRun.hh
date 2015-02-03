@@ -36,7 +36,7 @@ public:
   G4THitsMap<G4double>* GetHitsMap(const G4String& fullName);
   // - Dump All HitsMap of this RUN.
   //   This method calls G4THisMap::PrintAll() for individual HitsMap.
-  void DumpAllScorer();
+  void DumpAllScorer(G4int total_events);
 
   G4String makeString(G4int i);
 
