@@ -139,7 +139,7 @@ G4VPhysicalVolume* nwaterDetectorConstruction::Construct()
   // First layer at 5 cm
   //
 
-  G4ThreeVector pos2 = G4ThreeVector(0, 0, -4.5*cm);
+  G4ThreeVector pos2 = G4ThreeVector(0, 0, -5*cm);
         
   // Plane section shape       
   G4double shape2_xyz = 10*cm;
@@ -184,10 +184,10 @@ G4VPhysicalVolume* nwaterDetectorConstruction::Construct()
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
-    // Second layer at 15 cm
+    // Third layer at 15 cm
   //
 
-  G4ThreeVector pos4 = G4ThreeVector(0, 0, 4.5*cm);
+  G4ThreeVector pos4 = G4ThreeVector(0, 0, 5*cm);
         
   // Plane section shape       
   G4double shape4_xyz = 10*cm;
