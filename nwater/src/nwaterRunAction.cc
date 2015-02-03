@@ -77,13 +77,15 @@ G4Run* nwaterRunAction::GenerateRun()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void nwaterRunAction::BeginOfRunAction(const G4Run*)
+void nwaterRunAction::BeginOfRunAction(const G4Run* aRun)
 { 
   if(G4VVisManager::GetConcreteInstance()) {
     G4UImanager* UI = G4UImanager::GetUIpointer();
     UI->ApplyCommand("/vis/scene/notifyHandlers");
   }
-  CLHEP::HepRandom::showEngineStatus(); 
+  CLHEP::HepRandom::showEngineStatus();
+
+  total_events = aRun->GetNumberOfEventToBeProcessed();
 }
 
 void nwaterRunAction::EndOfRunAction(const G4Run* aRun)
@@ -94,9 +96,20 @@ void nwaterRunAction::EndOfRunAction(const G4Run* aRun)
 
   nwaterRun* theRun = (nwaterRun*)aRun;
   
-  theRun->DumpAllScorer();
-  //G4THitsMap<G4double>* Flux = theRun->GetHitsMap("Layer1/Flux_1");
-  //Flux->PrintAllHits();
+  G4cout << G4endl << " --------- Tallies ---------" << G4endl << G4endl;
+
+  G4cout << " 5 cm depth in water : Layer_1 " << G4endl;
+  G4cout << " 10 cm depth in water : Layer_2 " << G4endl;
+  G4cout << " 15 cm depth in water : Layer_3 " << G4endl << G4endl;
+
+  G4cout << " Flux_1 : Proton " << G4endl;
+  G4cout << " Flux_2 : Gamma " << G4endl;
+  G4cout << " Flux_3 : Neutron " << G4endl;
+  G4cout << " Flux_4 : Electron " << G4endl;
+  G4cout << " Flux_5 : Generic Ion " << G4endl;
+  G4cout << " Flux_6 : Alpha " << G4endl << G4endl;
+
+  theRun->DumpAllScorer(total_events);
   //theRun->DumpAllScorer();
 }
 
