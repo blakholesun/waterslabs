@@ -31,14 +31,14 @@
 #include "nwaterDetectorConstruction.hh"
 #include "nwaterActionInitialization.hh"
 
-#ifdef G4MULTITHREADED
-#include "G4MTRunManager.hh"
-#else
+// #ifdef G4MULTITHREADED
+// #include "G4MTRunManager.hh"
+// #else
 #include "G4RunManager.hh"
-#endif
+// #endif
 
 #include "G4UImanager.hh"
-#include "Shielding.hh"
+#include "nwaterPhysicsList.hh"
 //#include "G4PhysListFactory"
 
 #ifdef G4VIS_USE
@@ -61,11 +61,11 @@ int main(int argc,char** argv)
   
   // Construct the default run manager
   //
-#ifdef G4MULTITHREADED
-  G4MTRunManager* runManager = new G4MTRunManager;
-#else
+// #ifdef G4MULTITHREADED
+//   G4MTRunManager* runManager = new G4MTRunManager;
+// #else
   G4RunManager* runManager = new G4RunManager;
-#endif
+// #endif
 
   // Set mandatory initialization classes
   //
@@ -73,7 +73,7 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(new nwaterDetectorConstruction());
 
   // Physics list
-  G4VModularPhysicsList* physicsList = new Shielding;
+  G4VModularPhysicsList* physicsList = new nwaterPhysicsList();
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
 
