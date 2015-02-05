@@ -125,7 +125,7 @@ nwaterPhysicsList::nwaterPhysicsList(): G4VModularPhysicsList()
   this->RegisterPhysics(new G4HadronPhysicsShielding(verbose));
 
   // Neutron tracking cut --> not by default
-  // this->RegisterPhysics( new G4NeutronTrackingCut(verbose));
+  //this->RegisterPhysics( new G4NeutronTrackingCut(verbose));
 
 }
 
@@ -162,8 +162,9 @@ void nwaterPhysicsList::ConstructProcess()
 
   // Apply Processes to Process Manager of Neutron 
 
-  //G4ProcessManager* pmanager = G4Neutron::Neutron()-> GetProcessManager();
-  //pmanager->AddDiscreteProcess( theNeutronElasticProcess );
+  G4ProcessManager* pmanager = G4Neutron::Neutron()-> GetProcessManager();
+  pmanager->RemoveProcess(2); // Process 3 : this is the original hadElastic
+  pmanager->AddDiscreteProcess( theNeutronElasticProcess );
 
 }
 
