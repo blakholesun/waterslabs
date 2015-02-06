@@ -46,6 +46,7 @@ class nwaterRunAction : public G4UserRunAction
     nwaterRunAction();
     virtual ~nwaterRunAction();
     G4Run* GenerateRun();
+    G4String makeString(G4int i);
     virtual void BeginOfRunAction(const G4Run*);
     virtual void   EndOfRunAction(const G4Run*);
   private:

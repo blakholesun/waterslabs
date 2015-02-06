@@ -56,13 +56,40 @@ nwaterRunAction::nwaterRunAction()
 { 
   G4RunManager::GetRunManager()->SetPrintProgress(1);     
 
+  // Create analysis manager
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  analysisManager->SetVerboseLevel(1);
+  analysisManager->SetFirstHistoId(1);
+
+  G4String titles[6] = {"Proton Spectrum ", "Gamma Spectrum ", "Neutron Spectrum ",
+                        "Electron Spectrum ", "Generic Ion Spectrum ", "Alpha Spectrum"};
+
+
+  // Creating histograms
+  for(int i = 0; i < 3; i ++){
+    for(int j = 0; j < 6; j++){
+
+      analysisManager->CreateH1(makeString(6*i+j+1), // ids
+        titles[j] + makeString(5*i+5) + " cm", // Spectrum titles
+        200, 0.00000001*MeV, 15*MeV,"none", "none","log"); // #bins, start, stop, ~~, scale
+
+    }
+  }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 nwaterRunAction::~nwaterRunAction()
 {
-    //delete G4AnalysisManager::Instance();   
+  delete G4AnalysisManager::Instance();   
+}
+
+G4String nwaterRunAction::makeString(G4int i)
+{
+  std::ostringstream ss;
+  ss << i;
+  G4String test = ss.str();
+  return test;
 }
 
 G4Run* nwaterRunAction::GenerateRun()
@@ -86,10 +113,22 @@ void nwaterRunAction::BeginOfRunAction(const G4Run* aRun)
   CLHEP::HepRandom::showEngineStatus();
 
   total_events = aRun->GetNumberOfEventToBeProcessed();
+
+  // Get analysis manager
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  
+  // Open an output file
+  analysisManager->OpenFile("nwater");
+
 }
 
 void nwaterRunAction::EndOfRunAction(const G4Run* aRun)
 {
+  // Save histograms
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  analysisManager->Write();
+  analysisManager->CloseFile();
+
   G4int NbofEvents = aRun->GetNumberOfEvent();
   if (NbofEvents == 0) return;
   CLHEP::HepRandom::showEngineStatus();
@@ -98,9 +137,9 @@ void nwaterRunAction::EndOfRunAction(const G4Run* aRun)
   
   G4cout << G4endl << " --------- Tallies ---------" << G4endl << G4endl;
 
-  G4cout << " 5 cm depth in water : Layer_1 " << G4endl;
-  G4cout << " 10 cm depth in water : Layer_2 " << G4endl;
-  G4cout << " 15 cm depth in water : Layer_3 " << G4endl << G4endl;
+  G4cout << " 5 cm depth in water : Layer1 " << G4endl;
+  G4cout << " 10 cm depth in water : Layer2 " << G4endl;
+  G4cout << " 15 cm depth in water : Layer3 " << G4endl << G4endl;
 
   G4cout << " Flux_1 : Proton " << G4endl;
   G4cout << " Flux_2 : Gamma " << G4endl;
