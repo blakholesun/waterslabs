@@ -70,7 +70,8 @@ int main(int argc,char** argv)
   // Set mandatory initialization classes
   //
   // Detector construction
-  runManager->SetUserInitialization(new nwaterDetectorConstruction());
+  nwaterDetectorConstruction* detConstruction = new nwaterDetectorConstruction();
+  runManager->SetUserInitialization(detConstruction);
 
   // Physics list
   G4VModularPhysicsList* physicsList = new nwaterPhysicsList();
@@ -83,7 +84,8 @@ int main(int argc,char** argv)
   // runManager->SetUserInitialization(physicsList);
     
   // User action initialization
-  runManager->SetUserInitialization(new nwaterActionInitialization());
+  runManager->SetUserInitialization(
+                  new nwaterActionInitialization(detConstruction));
 
   // Initialize G4 kernel
   //

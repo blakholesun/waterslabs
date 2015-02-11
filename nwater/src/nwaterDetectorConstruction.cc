@@ -45,7 +45,10 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 nwaterDetectorConstruction::nwaterDetectorConstruction()
-: G4VUserDetectorConstruction()
+: G4VUserDetectorConstruction(),
+  fScoringVolumeLayer1(0),
+  fScoringVolumeLayer2(0),
+  fScoringVolumeLayer3(0)
 
 { }
 
@@ -152,6 +155,7 @@ G4VPhysicalVolume* nwaterDetectorConstruction::Construct()
                         matH2O_TS,          //its material
                         "Layer1");           //its name
                
+  fScoringVolumeLayer1 =
   new G4PVPlacement(0,                       //no rotation
                     pos2,                    //at position
                     logicLayer1,             //its logical volume
@@ -176,6 +180,7 @@ G4VPhysicalVolume* nwaterDetectorConstruction::Construct()
                         matH2O_TS,          //its material
                         "Layer2");           //its name
                
+  fScoringVolumeLayer2 =
   new G4PVPlacement(0,                       //no rotation
                     pos3,                    //at position
                     logicLayer2,             //its logical volume
@@ -200,6 +205,7 @@ G4VPhysicalVolume* nwaterDetectorConstruction::Construct()
                         matH2O_TS,          //its material
                         "Layer3");           //its name
                
+  fScoringVolumeLayer3 =
   new G4PVPlacement(0,                       //no rotation
                     pos4,                    //at position
                     logicLayer3,             //its logical volume
@@ -264,9 +270,9 @@ void nwaterDetectorConstruction::setCellFlux(G4String detector_name,
   G4SDParticleFilter* gammaFilter1 = 
     new G4SDParticleFilter("gammaFilter","gamma");
 
-  // -- Generic Ion filtering
-  G4SDParticleFilter* genericionFilter1 = 
-    new G4SDParticleFilter("genericionFilter","GenericIon");
+  // -- deuteron filtering
+  G4SDParticleFilter* deuteronFilter1 = 
+    new G4SDParticleFilter("deuteronFilter","deuteron");
 
   // -- alpha filtering
   G4SDParticleFilter* alphaFilter1 = 
@@ -297,9 +303,9 @@ void nwaterDetectorConstruction::setCellFlux(G4String detector_name,
   primitive->SetFilter(electronFilter1);
   layer3->RegisterPrimitive(primitive);
 
-  // filter Generic Ion
+  // filter deuteron
   primitive = new G4PSCellFlux(current_name + makeString(i+5));
-  primitive->SetFilter(genericionFilter1);
+  primitive->SetFilter(deuteronFilter1);
   layer3->RegisterPrimitive(primitive);
 
   // filter alpha

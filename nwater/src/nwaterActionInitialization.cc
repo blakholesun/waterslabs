@@ -32,11 +32,14 @@
 #include "nwaterPrimaryGeneratorAction.hh"
 #include "nwaterRunAction.hh"
 #include "nwaterEventAction.hh"
+#include "nwaterSteppingAction.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-nwaterActionInitialization::nwaterActionInitialization()
- : G4VUserActionInitialization()
+nwaterActionInitialization::nwaterActionInitialization(
+	nwaterDetectorConstruction* detConstruction)
+ : G4VUserActionInitialization(),
+ fDetConstruction(detConstruction)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -58,6 +61,7 @@ void nwaterActionInitialization::Build() const
   SetUserAction(new nwaterPrimaryGeneratorAction);
   SetUserAction(new nwaterRunAction);
   SetUserAction(new nwaterEventAction);
+  SetUserAction(new nwaterSteppingAction(fDetConstruction));
 }  
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

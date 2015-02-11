@@ -78,7 +78,7 @@ void nwaterPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   G4double radius = size*G4UniformRand();
   G4double x0 = radius * cos((angle*CLHEP::twopi));
   G4double y0 = radius * sin((angle*CLHEP::twopi));
-  G4double z0 = -5*cm;
+  G4double z0 = -0.1*cm;
   
   fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
 

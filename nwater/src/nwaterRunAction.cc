@@ -61,8 +61,8 @@ nwaterRunAction::nwaterRunAction()
   analysisManager->SetVerboseLevel(1);
   analysisManager->SetFirstHistoId(1);
 
-  G4String titles[6] = {"Proton Spectrum ", "Gamma Spectrum ", "Neutron Spectrum ",
-                        "Electron Spectrum ", "Generic Ion Spectrum ", "Alpha Spectrum"};
+  G4String titles[6] = {"Proton Spectrum ", "Gamma Spectrum ", "Primary Neutron Spectrum ",
+                        "Electron Spectrum ", "Deuteron Spectrum ", "Alpha Spectrum"};
 
 
   // Creating histograms
@@ -71,7 +71,7 @@ nwaterRunAction::nwaterRunAction()
 
       analysisManager->CreateH1(makeString(6*i+j+1), // ids
         titles[j] + makeString(5*i+5) + " cm", // Spectrum titles
-        200, 0.00000001*MeV, 15*MeV,"none", "none","log"); // #bins, start, stop, ~~, scale
+        200, 0.0000001, 15*MeV,"none", "none","log"); // #bins, start, stop, ~~, scale
 
     }
   }
@@ -145,7 +145,7 @@ void nwaterRunAction::EndOfRunAction(const G4Run* aRun)
   G4cout << " Flux_2 : Gamma " << G4endl;
   G4cout << " Flux_3 : Neutron " << G4endl;
   G4cout << " Flux_4 : Electron " << G4endl;
-  G4cout << " Flux_5 : Generic Ion " << G4endl;
+  G4cout << " Flux_5 : Deuteron " << G4endl;
   G4cout << " Flux_6 : Alpha " << G4endl << G4endl;
 
   theRun->DumpAllScorer(total_events);

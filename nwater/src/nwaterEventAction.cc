@@ -37,6 +37,7 @@
 #include "G4SDManager.hh"
 #include "G4HCofThisEvent.hh"
 #include "G4UnitsTable.hh"
+#include "G4VHit.hh"
 
 #include "Randomize.hh"
 #include <iomanip>
@@ -79,11 +80,11 @@ G4double nwaterEventAction::GetSum(G4THitsMap<G4double>* hitsMap) const
 {
   G4double sumValue = 0;
   std::map<G4int, G4double*>::iterator it;
-  for ( it = hitsMap->GetMap()->begin(); it != hitsMap->GetMap()->end(); it++) {
+  for ( it = hitsMap->GetMap()->begin(); it != hitsMap->GetMap()->end(); it ++) {
     sumValue += *(it->second);
   }
   return sumValue;  
-}  
+}
 
 G4String nwaterEventAction::makeString(G4int i)
 {
@@ -98,25 +99,32 @@ void nwaterEventAction::BeginOfEventAction(const G4Event*)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void nwaterEventAction::EndOfEventAction( const G4Event* event)
+void nwaterEventAction::EndOfEventAction( const G4Event*) //event)
 {
 
   // Layer hits collections filling histogram
   // Make into loop for elegance
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  G4String fullname;
-  G4double fluxes[3][6];
+  // G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  // G4String fullname;
+  // G4double fluxes[3][6];
+  // G4cout << "-------NEW EVENT------" << G4endl;
+  // G4THitsMap<G4double>* hitsMap = GetHitsCollection(G4SDManager::GetSDMpointer()->GetCollectionID("Layer1/Flux_3"),event);
+  // //hitsMap->PrintAllHits();
+  // std::map<G4int, G4double*>::iterator it;
+  //   for ( it = hitsMap->GetMap()->begin(); it != hitsMap->GetMap()->end(); it ++) {
+  //     G4cout << "Key: " << it->first << "   Value: " << *(it->second) << G4endl;
+  //   }
 
-  for(int i = 0; i<3; i++){
-    for(int j = 0; j<6; j++){
+  // for(int i = 0; i<3; i++){
+  //   for(int j = 0; j<6; j++){
 
-      fullname = "Layer" + makeString(i+1) + "/Flux_" + makeString(j+1);
-      fluxes[i][j] = GetSum(GetHitsCollection
-        (G4SDManager::GetSDMpointer()->GetCollectionID(fullname),event));
-
-      analysisManager->FillH1(6*i+j+1, fluxes[i][j]);
-    }
-  }
+  //     fullname = "Layer" + makeString(i+1) + "/Flux_" + makeString(j+1);
+  //     fluxes[i][j] = GetSum(GetHitsCollection
+  //       (G4SDManager::GetSDMpointer()->GetCollectionID(fullname),event));
+      // G4cout << fluxes[i][j] << G4endl;
+      // analysisManager->FillH1(6*i+j+1, fluxes[i][j]);
+  //   }
+  // }
 
 }
 

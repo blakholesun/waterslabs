@@ -33,10 +33,10 @@
 
 #include "G4UserSteppingAction.hh"
 #include "globals.hh"
+#include <map>
 
-class nwaterEventAction;
-
-class G4LogicalVolume;
+class G4ParticleDefinition;
+class nwaterDetectorConstruction;
 
 /// Stepping action class
 /// 
@@ -44,17 +44,15 @@ class G4LogicalVolume;
 class nwaterSteppingAction : public G4UserSteppingAction
 {
   public:
-    nwaterSteppingAction(nwaterEventAction* eventAction);
+    nwaterSteppingAction(const nwaterDetectorConstruction* detectorConstruction);
     virtual ~nwaterSteppingAction();
 
     // method from the base class
     virtual void UserSteppingAction(const G4Step*);
 
   private:
-    nwaterEventAction*  fEventAction;
-    G4LogicalVolume* fScoringVolume;
-    G4LogicalVolume*  fScoringVolume2;
-    G4LogicalVolume*  fScoringVolume3;
+    std::map<G4ParticleDefinition*,G4int> fParticleFlag;
+    const nwaterDetectorConstruction* fScoringVolume;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

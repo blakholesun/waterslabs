@@ -33,16 +33,21 @@
 
 #include "G4VUserActionInitialization.hh"
 
+class nwaterDetectorConstruction;
+
 /// Action initialization class.
 
 class nwaterActionInitialization : public G4VUserActionInitialization
 {
   public:
-    nwaterActionInitialization();
+    nwaterActionInitialization(nwaterDetectorConstruction*);
     virtual ~nwaterActionInitialization();
 
     virtual void BuildForMaster() const;
     virtual void Build() const;
+
+  private:
+    nwaterDetectorConstruction* fDetConstruction;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

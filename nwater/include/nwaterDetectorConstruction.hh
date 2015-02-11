@@ -51,13 +51,31 @@ class nwaterDetectorConstruction : public G4VUserDetectorConstruction
     virtual void setCellFlux(G4String detector_name, 
                                   G4String current_name, G4int i);
     virtual G4String makeString(G4int i);
-  //   G4LogicalVolume* GetScoringVolume() const { return fScoringVolume; }
 
-  // protected:
-  //   G4LogicalVolume*  fScoringVolume;
-  //   G4LogicalVolume*  fScoringVolume2;
-  //   G4LogicalVolume*  fScoringVolume3;
+    const G4VPhysicalVolume* GetLayer1() const;
+    const G4VPhysicalVolume* GetLayer2() const;
+    const G4VPhysicalVolume* GetLayer3() const;
+
+  private:
+    G4VPhysicalVolume*  fScoringVolumeLayer1;
+    G4VPhysicalVolume*  fScoringVolumeLayer2;
+    G4VPhysicalVolume*  fScoringVolumeLayer3;
+
+  // inline functions
+
 };
+
+  inline const G4VPhysicalVolume* nwaterDetectorConstruction::GetLayer1() const { 
+    return fScoringVolumeLayer1; 
+  }
+
+  inline const G4VPhysicalVolume* nwaterDetectorConstruction::GetLayer2() const  { 
+    return fScoringVolumeLayer2; 
+  }
+
+  inline const G4VPhysicalVolume* nwaterDetectorConstruction::GetLayer3() const  { 
+    return fScoringVolumeLayer3; 
+  }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
