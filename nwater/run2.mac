@@ -8,18 +8,19 @@
 /tracking/verbose 0
 #
 # 14 MeV neutron to the direction (0.,0.,1.)
-# 1000 events
+# 
+#
+# /gun/particle neutron
+# /gun/energy 14 MeV
+#
+# /run/printProgress 1000000
+# /run/beamOn 10000000
+# 
+# 1 MeV neutron to the direction (0.,0.,1.)
+# 
 #
 /gun/particle neutron
-/gun/energy 14 MeV
+/gun/energy 1 MeV
 #
-/run/printProgress 10000
-/run/beamOn 100000
-# 
-# proton 210 MeV to the direction (0.,0.,1.)
-# 1000 events
-#
-# /gun/particle proton
-# /gun/energy 210 MeV
-#
-#/run/beamOn 1000
+/run/printProgress 1000000
+/run/beamOn 10000000
