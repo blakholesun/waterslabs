@@ -62,32 +62,26 @@
 #include "G4DecayPhysics.hh"
 #include "G4RadioactiveDecayPhysics.hh"
 #include "G4EmProcessOptions.hh"
-#include "G4EmStandardPhysics.hh"
-#include "G4EmExtraPhysics.hh"
-#include "G4IonQMDPhysics.hh"
-#include "G4IonElasticPhysics.hh"
+#include "G4EmStandardPhysics_option3.hh"
 #include "G4StoppingPhysics.hh"
-#include "G4HadronElasticPhysicsHP.hh"
-#include "G4HadronElasticPhysicsLEND.hh"
+#include "G4HadronElasticPhysics.hh"
 #include "G4HadronElasticProcess.hh"
 #include "G4NeutronHPElasticData.hh"
 #include "G4NeutronHPThermalScatteringData.hh"
 #include "G4NeutronHPThermalScattering.hh"
 #include "G4NeutronHPElastic.hh"
 #include "G4VPhysicsConstructor.hh"
-
-#include "G4DataQuestionaire.hh"
-#include "G4HadronPhysicsShielding.hh"
+#include "G4HadronInelasticQBBC.hh"
 
 nwaterPhysicsList::nwaterPhysicsList(): G4VModularPhysicsList()
 {
   G4int verbose = 1;
   // default cut value  (1.0mm) 
   // defaultCutValue = 1.0*CLHEP::mm;
-  G4DataQuestionaire it(photon, neutron, radioactive, lowenergy);
-  G4cout << "<<< Geant4 User Physics List simulation engine based on Shielding 2.1 "
-         <<G4endl;
-  G4cout <<G4endl;
+  // G4DataQuestionaire it(photon, neutron, radioactive, lowenergy);
+  // G4cout << "<<< Geant4 User Physics List simulation engine based on Shielding 2.1 "
+  //        <<G4endl;
+  // G4cout <<G4endl;
   this->defaultCutValue = 0.*CLHEP::mm;  
   this->SetVerboseLevel(verbose);
 
@@ -99,30 +93,25 @@ nwaterPhysicsList::nwaterPhysicsList(): G4VModularPhysicsList()
   //emOptions.SetPIXE(true); // To activate Particle Induced X-Ray Emission (PIXE)   
 
   // Synchroton Radiation & GN Physics
-  this->RegisterPhysics( new G4EmExtraPhysics(verbose) );
+  // this->RegisterPhysics( new G4EmExtraPhysics(verbose) );
 
   // Decays 
   this->RegisterPhysics( new G4DecayPhysics(verbose) );
   //if ( rad == true ) this->RegisterPhysics( new G4RadioactiveDecayPhysics(verbose) );
-  this->RegisterPhysics( new G4RadioactiveDecayPhysics(verbose) );
+  //this->RegisterPhysics( new G4RadioactiveDecayPhysics(verbose) );
 
   //elastic physics
-  this->RegisterPhysics( new G4HadronElasticPhysicsHP(verbose) );
+  this->RegisterPhysics( new G4HadronElasticPhysics(verbose) );
   
   //Activate prodcuton of fission fragments in neutronHP
-  char env_ff[]="G4NEUTRONHP_PRODUCE_FISSION_FRAGMENTS=1";
-  putenv(env_ff);
+  // char env_ff[]="G4NEUTRONHP_PRODUCE_FISSION_FRAGMENTS=1";
+  // putenv(env_ff);
   
   // Stopping Physics
-  this->RegisterPhysics( new G4StoppingPhysics(verbose));
-
-  // Ion Physics
-  this->RegisterPhysics( new G4IonQMDPhysics(verbose));
-  
-  this->RegisterPhysics( new G4IonElasticPhysics(verbose));
+  //this->RegisterPhysics( new G4StoppingPhysics(verbose));
 
   // Register inelastic
-  this->RegisterPhysics(new G4HadronPhysicsShielding(verbose));
+  this->RegisterPhysics(new G4HadronInelasticQBBC(verbose));
 
   // Neutron tracking cut --> not by default
   //this->RegisterPhysics( new G4NeutronTrackingCut(verbose));
@@ -168,19 +157,19 @@ void nwaterPhysicsList::ConstructProcess()
 
 }
 
-void nwaterPhysicsList::SetCuts()
-{
-  if (this->verboseLevel >1){
-    G4cout << "Shielding::SetCuts:";
-  }  
-  //  " G4VUserPhysicsList::SetCutsWithDefault" method sets 
-  //   the default cut value for all particle types 
+// void nwaterPhysicsList::SetCuts()
+// {
+//   if (this->verboseLevel >1){
+//     G4cout << "Shielding::SetCuts:";
+//   }  
+//   //  " G4VUserPhysicsList::SetCutsWithDefault" method sets 
+//   //   the default cut value for all particle types 
 
-  //this->SetCutsWithDefault();   
+//   //this->SetCutsWithDefault();   
 
-  //Set proton cut value to 0 for producing low energy recoil nucleus 
-  //this->SetCutValue(0, "proton");    
+//   //Set proton cut value to 0 for producing low energy recoil nucleus 
+//   //this->SetCutValue(0, "proton");    
  
-//  if (this->verboseLevel > 0)
-//    G4VUserPhysicsList::DumpCutValuesTable();  
-}
+// //  if (this->verboseLevel > 0)
+// //    G4VUserPhysicsList::DumpCutValuesTable();  
+// }

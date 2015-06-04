@@ -56,7 +56,7 @@ public:
 
 public:
   // SetCuts() 
-  virtual void SetCuts();
+  //virtual void SetCuts();
 
 private:
   std::vector<G4VPhysicsConstructor*>  Lists;

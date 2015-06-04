@@ -126,6 +126,11 @@ void nwaterRunAction::EndOfRunAction(const G4Run* aRun)
 {
   // Save histograms
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  G4double normalization = (G4double)total_events;
+  for (int i = 0; i<18; i++){
+    analysisManager->ScaleH1(i+1, 1/normalization);
+  }
+
   analysisManager->Write();
   analysisManager->CloseFile();
 

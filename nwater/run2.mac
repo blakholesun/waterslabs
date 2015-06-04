@@ -20,7 +20,7 @@
 # 
 #
 /gun/particle neutron
-/gun/energy 1 MeV
+/gun/energy 14 MeV
 #
 /run/printProgress 1000000
 /run/beamOn 10000000
