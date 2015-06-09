@@ -45,6 +45,8 @@
 #include "G4THitsMap.hh"
 #include "G4HCtable.hh"
 #include "G4Run.hh"
+#include <ctime>
+#include <algorithm>
 #include <iostream>
 using namespace std;
 #include "CLHEP/Random/Random.h"
@@ -81,7 +83,7 @@ nwaterRunAction::nwaterRunAction()
 
 nwaterRunAction::~nwaterRunAction()
 {
-  delete G4AnalysisManager::Instance();   
+  delete G4AnalysisManager::Instance();
 }
 
 G4String nwaterRunAction::makeString(G4int i)
@@ -117,9 +119,18 @@ void nwaterRunAction::BeginOfRunAction(const G4Run* aRun)
   // Get analysis manager
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
   
-  // Open an output file
-  analysisManager->OpenFile("nwater");
-
+  // Open an output directory and file
+  time_t now = time(0);
+  char* temp = ctime(&now);
+  G4String dt(temp);
+  dt = dt.substr(0, dt.size()-1);
+  replace( dt.begin(), dt.end(), ' ', '_');
+  replace( dt.begin(), dt.end(), ':', '_');
+  G4String foldername = G4String("Run_") + dt;
+  G4String command = "mkdir " + foldername;
+  system(command);
+  G4cout << G4endl << "Created output directory named " << foldername << G4endl;
+  analysisManager->OpenFile(foldername + "/nwater");
 }
 
 void nwaterRunAction::EndOfRunAction(const G4Run* aRun)

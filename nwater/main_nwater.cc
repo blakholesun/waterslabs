@@ -77,11 +77,6 @@ int main(int argc,char** argv)
   G4VModularPhysicsList* physicsList = new nwaterPhysicsList();
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
-
-  // G4PhysListFactory *physListFactory = new G4PhysListFactory();
-  // G4VUserPhysicsList *physicsList = 
-  // physListFactory->GetReferencePhysList("Shielding"); 
-  // runManager->SetUserInitialization(physicsList);
     
   // User action initialization
   runManager->SetUserInitialization(

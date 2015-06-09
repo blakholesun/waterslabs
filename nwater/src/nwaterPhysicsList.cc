@@ -62,7 +62,7 @@
 #include "G4DecayPhysics.hh"
 #include "G4RadioactiveDecayPhysics.hh"
 #include "G4EmProcessOptions.hh"
-#include "G4EmStandardPhysics_option3.hh"
+#include "G4EmStandardPhysics.hh"
 #include "G4StoppingPhysics.hh"
 #include "G4HadronElasticPhysics.hh"
 #include "G4HadronElasticProcess.hh"

@@ -59,7 +59,7 @@ void nwaterActionInitialization::BuildForMaster() const
 void nwaterActionInitialization::Build() const
 {
   SetUserAction(new nwaterPrimaryGeneratorAction);
-  SetUserAction(new nwaterRunAction);
+  SetUserAction(new nwaterRunAction());
   SetUserAction(new nwaterEventAction);
   SetUserAction(new nwaterSteppingAction(fDetConstruction));
 }  
